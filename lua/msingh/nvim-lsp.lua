@@ -68,7 +68,7 @@ capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches using on_attach function
-local servers = { 'bashls', 'jdtls', 'pyright', 'lua_ls', 'tsserver', 'yamlls' }
+local servers = { 'bashls', 'jdtls', 'pyright', 'ts_ls', 'yamlls', 'dockerls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -80,18 +80,52 @@ for _, lsp in ipairs(servers) do
 end
 
 -- dockerls server setup
-nvim_lsp['dockerls'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    cmd = {"docker-langserver", "--stdio"},
-    filetypes = {"dockerfile", "qib-11-Dockerfile"},
-    -- root_dir = root_pattern("Dockerfile"),
-    single_file_support = true
+-- nvim_lsp['dockerls'].setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     flags = {
+--         debounce_text_changes = 150,
+--     },
+--     cmd = {"docker-langserver", "--stdio"},
+--     filetypes = {"dockerfile", "qib-11-Dockerfile"},
+--     -- root_dir = root_pattern("Dockerfile"),
+--     single_file_support = true
+-- }
+
+require'lspconfig'.lua_ls.setup {
+  on_init = function(client)
+    if client.workspace_folders then
+      local path = client.workspace_folders[1].name
+      if path ~= vim.fn.stdpath('config') and (vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc')) then
+        return
+      end
+    end
+
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = {
+        -- Tell the language server which version of Lua you're using
+        -- (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT'
+      },
+      -- Make the server aware of Neovim runtime files
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME
+          -- Depending on the usage, you might want to add additional paths here.
+          -- "${3rd}/luv/library"
+          -- "${3rd}/busted/library",
+        }
+        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
+        -- library = vim.api.nvim_get_runtime_file("", true)
+      }
+    })
+  end,
+  settings = {
+    Lua = {}
+  }
 }
---
+
 -- Null-ls
 --
 -- null-ls is a general purpose language server that doesn't need
@@ -135,6 +169,6 @@ require('vim.lsp.protocol').CompletionItemKind = {
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = true,
-  virtual_text = {spacing = 5, severity_limit = 'Warning'},
+  virtual_text = {spacing = 5, min = 'severity'},
   update_in_insert = true
 })
