@@ -63,7 +63,7 @@ OR
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
 
-> ```<leader> '\'``` key is used for custom keymap as which-key plugins help becomes useful for it or use **space** key if preferred.
+> ```<leader> 'Space'``` key is used for custom keymap as which-key plugins help becomes useful; or reverto to default ```\``` in init.vim.
 
 
 ### Refrence .dotfiles for nvim

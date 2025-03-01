@@ -21,6 +21,7 @@ filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set ic                      " search igone case
 " set wrap!                   " Disable word wrap or use :set nowrap
+let mapleader = "\<space>"  " default leader key in vim/nvim is \
 
 " Installed Plugins
 call plug#begin()
@@ -60,11 +61,11 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'     
 Plug 'jose-elias-alvarez/null-ls.nvim'
 " Autocompletion
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 " LuaSnip
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
@@ -95,12 +96,11 @@ nnoremap <silent><A-{}> :BufferGoto {}<CR>
 " <leader> based keys below this----------------------------------------- 
 
 " Save all buffers -special using space-bar
-nnoremap <space>s :wa<CR>
-nnoremap <space>w :set wrap!<CR>
+nnoremap <leader>s :wa<CR>
+nnoremap <space>W :set wrap!<CR>
 
 " Terminal config
 " nnoremap <silent><c-t> :FloatermNew<CR>
-" nnoremap <leader>nnn :FloatermNew nnn<CR>
 
 " Telescope
 " nnoremap <leader>ff <cmd>Telescope find_files<CR>
