@@ -85,7 +85,7 @@ end
 --     single_file_support = true
 -- }
 
-require'lspconfig'.lua_ls.setup {
+nvim_lsp.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
