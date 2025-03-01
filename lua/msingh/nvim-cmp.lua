@@ -1,5 +1,4 @@
 local cmp = require('cmp')
-local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 -- local nvim_lsp = require('lspconfig')
 
@@ -52,3 +51,9 @@ cmp.setup {
     { name = 'luasnip' }
   },
 }
+
+
+local cmp_nvim_lsp = require('cmp_nvim_lsp') -- This plugin is a part of nvim-cmp and adds capabilities to lsp server
+-- nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
