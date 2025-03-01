@@ -59,7 +59,6 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'     
-Plug 'jose-elias-alvarez/null-ls.nvim'
 " Autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
