@@ -1,5 +1,4 @@
-local nvim_lsp = require('lspconfig')
-local null_ls = require('null-ls')
+local lspconfig = require('lspconfig')
 
 --
 -- Lspconfig
@@ -63,7 +62,7 @@ end
 -- map buffer local keybindings when the language server attaches using on_attach function
 local servers = { 'bashls', 'jdtls', 'pyright', 'ts_ls', 'yamlls', 'dockerls' }
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
+    lspconfig[lsp].setup {
         capabilities = capabilities,
         on_attach = on_attach,
         flags = {
@@ -85,7 +84,7 @@ end
 --     single_file_support = true
 -- }
 
-nvim_lsp.lua_ls.setup {
+lspconfig.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
@@ -118,29 +117,6 @@ nvim_lsp.lua_ls.setup {
     Lua = {}
   }
 }
-
--- Null-ls
---
--- null-ls is a general purpose language server that doesn't need
--- the same config as actual language servers like tsserver, so
--- setup is a little different.
-null_ls.setup({
-    on_attach = function(client, bufnr)
-        sources = {
-            -- prettierd is installed globally via npm
-            null_ls.builtins.formatting.prettier
-        }
-        -- Autoformat
-        --if client.server_capabilities.document_formatting then
-        --   vim.cmd [[augroup Format]]
-        --   vim.cmd [[autocmd! * <buffer>]]
-        --   vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-        --   vim.cmd [[augroup END]]
-        --end
-        -- call local on_attach
-        return on_attach(client, bufnr)
-    end
-})
 
 --
 -- Diagnostics
