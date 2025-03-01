@@ -11,9 +11,6 @@ local luasnip = require('luasnip')
 vim.o.completeopt = 'menuone,noselect'
 
 cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format()
-  },
   snippet = {
     expand = function(args)
         luasnip.lsp_expand(args.body)

@@ -69,8 +69,8 @@ Plug 'hrsh7th/nvim-cmp'
 " LuaSnip
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-" VSCode like
-Plug 'onsails/lspkind-nvim'
+" VSCode like - doesn't add much value !!
+" Plug 'onsails/lspkind-nvim'
 
 " Trouble - uses web-dev-icons
 Plug 'folke/trouble.nvim'
