@@ -58,18 +58,18 @@ local on_attach  = function(client, bufnr)
     client.server_capabilities.document_range_formatting = false
 end
 
--- -- Use a loop to conveniently call 'setup' on multiple servers and
--- -- map buffer local keybindings when the language server attaches using on_attach function
--- local servers = { 'bashls', 'jdtls', 'pyright', 'ts_ls', 'yamlls', 'dockerls' }
--- for _, lsp in ipairs(servers) do
---     lspconfig[lsp].setup {
---         capabilities = capabilities,
---         on_attach = on_attach,
---         flags = {
---             debounce_text_changes = 150,
---         }
---     }
--- end
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches using on_attach function
+local servers = { 'bashls', 'jdtls', 'pyright', 'ts_ls', 'yamlls', 'dockerls' }
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        }
+    }
+end
 
 -- dockerls server setup
 -- nvim_lsp['dockerls'].setup {
