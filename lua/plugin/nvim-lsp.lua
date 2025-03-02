@@ -7,8 +7,8 @@ local lspconfig = require('lspconfig')
 -- Use an on_attach function to only map the following keys after
 -- the language server attaches to the current buffer
 local on_attach  = function(client, bufnr)
-    local function buf_set_keymap(...) 
-        vim.api.nvim_buf_set_keymap(bufnr, ...) 
+    local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
 
     -- Mappings
@@ -58,6 +58,10 @@ local on_attach  = function(client, bufnr)
     client.server_capabilities.document_range_formatting = false
 end
 
+local cmp_nvim_lsp = require('cmp_nvim_lsp') -- This plugin is a part of nvim-cmp and adds capabilities to lsp server
+-- nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = cmp_nvim_lsp.default_capabilities()
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches using on_attach function
 local servers = { 'bashls', 'jdtls', 'pyright', 'ts_ls', 'yamlls', 'dockerls' }
@@ -85,6 +89,9 @@ end
 -- }
 
 lspconfig.lua_ls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
