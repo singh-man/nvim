@@ -39,7 +39,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " Neovim TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground' " Deprecated. Its integrated to neovim now
 
 " Tabs
 Plug 'romgrk/barbar.nvim'
@@ -65,8 +64,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-" LuaSnip
-Plug 'L3MON4D3/LuaSnip'
+" LuaSnip follow latest release and install jsregexp.
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'saadparwaiz1/cmp_luasnip'
 " VSCode like - doesn't add much value !!
 " Plug 'onsails/lspkind-nvim'
@@ -109,7 +108,7 @@ nnoremap <space>W :set wrap!<CR>
 " nnoremap <leader>fr <cmd>Telescope oldfiles<CR>
 
 " Plugins config
-lua require('msingh')
+lua require('plugin')
 
 " Enable below WSL; uses win32yank.exe at location /usr/local/bin
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
