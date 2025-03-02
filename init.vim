@@ -109,7 +109,7 @@ nnoremap <space>W :set wrap!<CR>
 " nnoremap <leader>fr <cmd>Telescope oldfiles<CR>
 
 " Plugins config
-lua require('msingh')
+lua require('plugin')
 
 " Enable below WSL; uses win32yank.exe at location /usr/local/bin
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
