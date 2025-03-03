@@ -1,8 +1,6 @@
 local lspconfig = require('lspconfig')
 
---
--- Lspconfig
---
+-- Lspconfig: attach keymapping, capabilities to lspconfig server
 
 -- Use an on_attach function to only map the following keys after
 -- the language server attaches to the current buffer

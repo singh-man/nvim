@@ -24,7 +24,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    -- use Tab and shift-Tab to navigate autocomplete menu
+    -- LuaSnip: use Tab and shift-Tab to navigate autocomplete menu
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
