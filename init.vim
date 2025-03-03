@@ -97,9 +97,6 @@ nnoremap <silent><A-{}> :BufferGoto {}<CR>
 nnoremap <leader>s :wa<CR>
 nnoremap <space>W :set wrap!<CR>
 
-" Terminal config
-" nnoremap <silent><c-t> :FloatermNew<CR>
-
 " Telescope
 " nnoremap <leader>ff <cmd>Telescope find_files<CR>
 " nnoremap <leader>fb <cmd>Telescope buffers<CR>
@@ -111,5 +108,5 @@ nnoremap <space>W :set wrap!<CR>
 lua require('plugin')
 
 " Enable below WSL; uses win32yank.exe at location /usr/local/bin
-" https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+" https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-From-wsl
 set clipboard=unnamedplus
