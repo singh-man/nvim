@@ -1,6 +1,6 @@
 ### Install plugin manager VimPlug
 Check how to install VimPlug for NeoVim
-https://github.com/junegunn/vim-plug#unix-linux
+https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation
 
 ### Install neovim
 - Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu). https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
