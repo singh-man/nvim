@@ -58,7 +58,7 @@ OR
 - Install and modify LSP_servers as needed
 
 ### Install LSP servers
-- Plugin `mason.nvim` is configured, so lsp-servers can be installed with command `:LspInstall` or for manual installation of lsp-serves, follow [https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
+- Plugin `mason.nvim` is configured, so lsp-servers can be installed with command `:LspInstall <server>` or `:MasonInstall <server>` or for manual installation of lsp-serves, follow [https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
 - Modify file `lua/msingh/nvim-lsp.lua` to add servers as needed
 
 > Every lsp server has auto-load custom **root_folder**; do check the docs.
@@ -74,5 +74,8 @@ https://www.jakewiesler.com/blog/getting-started-with-vim --- or --- https://git
 *Intermediate level*
 https://github.com/VapourNvim/VapourNvim
 
-*Advanced setup`
+*Good One*
+https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim
+
+*Advanced setup*
 https://github.com/LunarVim/LunarVim
