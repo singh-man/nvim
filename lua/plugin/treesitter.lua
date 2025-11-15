@@ -1,6 +1,9 @@
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"bash", "c", "clojure", "cmake", "cpp", "css", "dockerfile", "go", "html", "java", "javascript", "json", "kotlin", "latex", "lua", "php", "python", "rust", "toml", "typescript", "vim", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+    -- Automatically install missing parsers when entering buffer
+    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+    auto_install = true,
     ignore_install = { "dart" }, -- List of parsers to ignore installing
     highlight = {
         enable = true,              -- false will disable the whole extension
