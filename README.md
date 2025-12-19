@@ -4,7 +4,7 @@ https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation
 
 ### Install neovim
 - Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu). https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
-- Setup a plugin manager like Vim Plug.
+- Setup a plugin manager like Vim Plug `For windows use powershell`.
 - Install python3 and pip3.
 - Install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
 - Install `npm install --global yarn`
@@ -47,6 +47,10 @@ OR (if you have ssh development key)
 OR
 
 ```git clone https://github.com/singh-man/nvim-IDE.git ~/.config/nvim```
+
+Windows
+
+```git clone https://github.com/singh-man/nvim-IDE.git ~/AppData/Local/nvim```
 
 - Install Plugins in NeoVim by
   - without starting nvim `nvim --headless +PlugInstall +qall` 
