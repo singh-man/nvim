@@ -1,7 +1,7 @@
+require('plugin.blink-cmp')
 require('plugin.comment')
 require('plugin.lualine')
 require('plugin.mason')
-require('plugin.nvim-cmp')
 require('plugin.nvim-lsp')
 require('plugin.nvim-tree')
 require('plugin.telescope')
