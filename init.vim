@@ -25,17 +25,17 @@ let mapleader = "\<space>"  " default leader key in vim/nvim is \
 
 " Installed Plugins
 call plug#begin()
-" NVIM tree
-Plug 'nvim-tree/nvim-web-devicons' " for file icons this is used by many plugins
-Plug 'nvim-tree/nvim-tree.lua'
 
-" Cheatsheet popup - uses nvim-web-devicons
-Plug 'sudormrfbin/cheatsheet.nvim'
-Plug 'nvim-lua/popup.nvim'
+" Common used in nvim-tree, barbar, lualine
+Plug 'nvim-tree/nvim-web-devicons' " for file icons this is used by many plugins
+" Plug 'nvim-lua/popup.nvim'
+
+" NVIM tree
+Plug 'nvim-tree/nvim-tree.lua'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': 'v0.2.0' }
 
 " Neovim TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -44,7 +44,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/barbar.nvim'
 
 " Terminals
-Plug 'akinsho/toggleterm.nvim'      " prefer using this with <leader> key
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}      " prefer using this with <leader> key
 Plug 'voldikss/vim-floaterm'        " has shortcut for nnn, lazygit don't use
 
 " Lualine status bar - uses nvim-web-devicons
@@ -55,18 +55,18 @@ Plug 'folke/which-key.nvim'
 
 " Auto install lsp-serveers
 Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
+
 " LSP
 Plug 'neovim/nvim-lspconfig'     
+
 " Autocompletion
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'saghen/blink.cmp', " {'tag' : 'v1.*'}
+
+
 " LuaSnip follow latest release and install jsregexp.
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
-Plug 'saadparwaiz1/cmp_luasnip'
+" Plug 'saadparwaiz1/cmp_luasnip'
 " VSCode like - doesn't add much value !!
 " Plug 'onsails/lspkind-nvim'
 
