@@ -10,19 +10,20 @@
 -- 	end,
 -- })
 
-
-require("luasnip.loaders.from_vscode").lazy_load()
+-- Search blink cmp keymap on google and modify accordingly
+-- require("luasnip.loaders.from_vscode").lazy_load(
 require("blink.cmp").setup({
+    fuzzy = { implementation = "prefer_rust_with_warning" },
 	signature = { enabled = true },
     opts = {
-        snippets = { preset = 'luasnip' },
-        -- ensure you have the `snippets` source (enabled by default)
-        sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
-        },
+        -- snippets = { preset = 'luasnip' },
+        -- -- ensure you have the `snippets` source (enabled by default)
+        -- sources = {
+        --     default = { 'lsp', 'path', 'snippets', 'buffer' },
+        -- },
     },
 	completion = {
-		documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
 		menu = {
 			auto_show = true,
 			draw = {
@@ -31,4 +32,13 @@ require("blink.cmp").setup({
 			},
 		},
 	},
+    keymap = {
+        preset = "enter", -- 'default' is not good
+        ["<ESC>"] = { "cancel", "fallback" }, -- Reverts and hide the completion menu
+    --     ["<Tab>"] = { "select_next", "fallback" },
+    --     ["<S-Tab>"] = { "select_prev", "fallback" },
+    --     ["<C-Up>"] = { "scroll_documentation_up", "fallback" },
+    --     ["<C-Down>"] = { "scroll_documentation_down", "fallback" },
+    --     [",."] = { "cancel" },
+      },
 })
