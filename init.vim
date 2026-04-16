@@ -61,7 +61,7 @@ Plug 'neovim/nvim-lspconfig'
 
 " Autocompletion
 Plug 'rafamadriz/friendly-snippets'
-Plug 'saghen/blink.cmp', " {'tag' : 'v1.*'}
+Plug 'saghen/blink.cmp', {'tag' : 'v1.*'}
 
 " VSCode like - doesn't add much value !!
 " Plug 'onsails/lspkind-nvim'
