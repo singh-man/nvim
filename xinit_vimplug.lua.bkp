@@ -1,0 +1,122 @@
+-- =============================================================================
+-- init.lua - Converted from init.vim
+-- Plugin Manager: vim-plug (via vim.fn / vim.cmd)
+-- =============================================================================
+
+-- ---------------------------------------------------------------------------
+-- OPTIONS
+-- ---------------------------------------------------------------------------
+local opt = vim.opt
+
+opt.encoding      = "UTF-8"
+opt.showmatch     = true          -- show matching brackets
+opt.ignorecase    = true          -- case insensitive search (also covers 'ic')
+opt.mouse         = "a"           -- full mouse support (overrides earlier mouse=v)
+opt.hlsearch      = true          -- highlight search results
+opt.tabstop       = 4             -- columns per tab character
+opt.softtabstop   = 4             -- treat N spaces as a tab when backspacing
+opt.expandtab     = true          -- convert tabs to spaces
+opt.shiftwidth    = 4             -- width for autoindents
+opt.autoindent    = true          -- copy indent from current line on new line
+opt.number        = true          -- show absolute line numbers
+opt.relativenumber = true         -- show relative line numbers
+opt.wildmode      = { "longest", "list" }  -- bash-like tab completion
+opt.colorcolumn   = "120"         -- 120-column guide
+opt.showmode      = false         -- hide -- INSERT -- in command bar (noshowmode)
+opt.timeoutlen    = 800           -- key sequence timeout (ms)
+opt.clipboard     = "unnamedplus" -- use system clipboard (WSL: needs win32yank)
+-- opt.termguicolors = true         -- uncomment if your terminal supports it
+-- opt.wrap          = false        -- uncomment to disable word wrap
+
+-- filetype plugin indent + syntax (Lua equivalents)
+vim.cmd("filetype plugin indent on")
+vim.cmd("syntax on")
+
+-- ---------------------------------------------------------------------------
+-- LEADER KEY
+-- ---------------------------------------------------------------------------
+vim.g.mapleader = " "
+
+-- ---------------------------------------------------------------------------
+-- PLUGINS  (vim-plug)
+-- ---------------------------------------------------------------------------
+local Plug = vim.fn["plug#"]
+
+vim.call("plug#begin")
+
+  -- Icons (shared dependency)
+  Plug "nvim-tree/nvim-web-devicons"
+
+  -- File explorer
+  Plug "nvim-tree/nvim-tree.lua"
+
+  -- Telescope fuzzy finder
+  Plug "nvim-lua/plenary.nvim"
+  Plug("nvim-telescope/telescope.nvim", { tag = "v0.2.0" })
+
+  -- Treesitter
+  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+
+  -- Tab bar
+  Plug "romgrk/barbar.nvim"
+
+  -- Terminals
+  Plug("akinsho/toggleterm.nvim", { tag = "*" })
+  Plug "voldikss/vim-floaterm"
+
+  -- Status line
+  Plug "nvim-lualine/lualine.nvim"
+
+  -- Which-key
+  Plug "folke/which-key.nvim"
+
+  -- Mason (LSP server installer)
+  Plug "williamboman/mason.nvim"
+
+  -- LSP config
+  Plug "neovim/nvim-lspconfig"
+
+  -- Autocompletion
+  Plug "rafamadriz/friendly-snippets"
+  Plug("saghen/blink.cmp", { tag = "v1.*" })
+
+  -- Diagnostics UI
+  Plug "folke/trouble.nvim"
+
+  -- Code comments
+  Plug "terrortylor/nvim-comment"
+
+vim.call("plug#end")
+
+-- ---------------------------------------------------------------------------
+-- KEYMAPS
+-- ---------------------------------------------------------------------------
+local map = vim.keymap.set
+local opts = { silent = true }
+
+-- Barbar: tab navigation
+map("n", "<A-,>",      "<Cmd>BufferPrevious<CR>",     opts)
+map("n", "<A-.>",      "<Cmd>BufferNext<CR>",         opts)
+map("n", "<A-<>",      "<Cmd>BufferMovePrevious<CR>", opts)
+-- Note: original had two bindings on <A-<>; second one (MoveNext) wins.
+-- Uncomment the line below and pick a distinct key if you need both:
+-- map("n", "<A->>",   "<Cmd>BufferMoveNext<CR>",     opts)
+map("n", "<leader>x",  "<Cmd>BufferClose<CR>",        opts)
+
+-- Save all buffers
+map("n", "<leader>s",  "<Cmd>wa<CR>",                 opts)
+
+-- Toggle word wrap
+map("n", "<Space>W",   "<Cmd>set wrap!<CR>",          opts)
+
+-- Telescope  (uncomment to activate)
+-- map("n", "<leader>ff", "<Cmd>Telescope find_files<CR>",  opts)
+-- map("n", "<leader>fb", "<Cmd>Telescope buffers<CR>",     opts)
+-- map("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>",   opts)
+-- map("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>",   opts)
+-- map("n", "<leader>fr", "<Cmd>Telescope oldfiles<CR>",    opts)
+
+-- ---------------------------------------------------------------------------
+-- LOAD PLUGIN CONFIGS
+-- ---------------------------------------------------------------------------
+require("plugin")
