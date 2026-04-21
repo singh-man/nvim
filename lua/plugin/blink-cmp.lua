@@ -13,7 +13,7 @@
 -- Search blink cmp keymap on google and modify accordingly
 -- require("luasnip.loaders.from_vscode").lazy_load(
 require("blink.cmp").setup({
-    fuzzy = { implementation = "prefer_rust_with_warning" },
+    fuzzy = { implementation = "lua" },
 	signature = { enabled = true },
     opts = {
         -- snippets = { preset = 'luasnip' },
