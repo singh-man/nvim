@@ -1,10 +1,12 @@
-### Install plugin manager VimPlug
-Check how to install VimPlug for NeoVim
-https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation
+
+Using ```vim.pack``` neovim 0.11+ inbuilt package manager below ```VimPlug``` is deprecated.
+
+### Deprecated: Install plugin manager VimPlug
+~Check how to install VimPlug for NeoVim ```https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation```~
 
 ### Install neovim
 - Follow neovim latest installation guide; avoid via package manager (Debian/ubuntu). https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
-- Setup a plugin manager like Vim Plug `For windows use powershell`.
+- ~Setup a plugin manager like Vim Plug `For windows use powershell`.~
 - Install python3 and pip3.
 - Install npm: google `coc-nvim` and check what it says to install npm or `curl -sL install-node.vercel.app/lts | sudo bash`
 - Install `npm install --global yarn`
@@ -53,10 +55,11 @@ Windows
 ```git clone https://github.com/singh-man/nvim-IDE.git ~/AppData/Local/nvim```
 
 - Install Plugins in NeoVim by
-  - without starting nvim `nvim --headless +PlugInstall +qall` 
-  - OR
-  - Start nvim like `nvim <file name or leave blank>`
-  - Run `:PlugInstall`
+  - ~without starting nvim `nvim --headless +PlugInstall +qall`~
+  - ~OR~
+  - Start nvim like `nvim <file name or leave blank>`; it should autoinstall all the configured plugins.
+  - ~Run `:PlugInstall`~
+  - else do; ```:lua vim.pack.install()``` or ```:lua vim.pack.update()```
   - Exit and restart
 - First Run after plugins install; TreeSitter will trigger and will automatically install all its needed compilers.
 - Install and modify LSP_servers as needed
