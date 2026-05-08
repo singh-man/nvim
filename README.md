@@ -40,19 +40,19 @@ Download fonts from https://www.nerdfonts.com/font-downloads
 ### Clone this repo
 - Under ~/.config/nvim -> make the dir **nvim**, if missing.
 
-```git clone --depth 1 git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
+```git clone --depth 1 git@github.com:singh-man/nvim.git ~/.config/nvim```
 
 OR (if you have ssh development key)
 
-```git clone git@github.com:singh-man/nvim-IDE.git ~/.config/nvim```
+```git clone git@github.com:singh-man/nvim.git ~/.config/nvim```
 
 OR
 
-```git clone https://github.com/singh-man/nvim-IDE.git ~/.config/nvim```
+```git clone https://github.com/singh-man/nvim.git ~/.config/nvim```
 
 Windows
 
-```git clone https://github.com/singh-man/nvim-IDE.git ~/AppData/Local/nvim```
+```git clone https://github.com/singh-man/nvim.git ~/AppData/Local/nvim```
 
 - Install Plugins in NeoVim by
   - ~without starting nvim `nvim --headless +PlugInstall +qall`~
