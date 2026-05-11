@@ -114,6 +114,10 @@ local mopts = { silent = true }
 -- Barbar: tab navigation
 map("n", "<A-,>",     "<Cmd>BufferPrevious<CR>",    mopts)
 map("n", "<A-.>",     "<Cmd>BufferNext<CR>",         mopts)
+-- macOS Option-comma/period may be sent as these characters unless Option is
+-- configured as Meta in the terminal.
+map("n", "≤",         "<Cmd>BufferPrevious<CR>",    mopts)
+map("n", "≥",         "<Cmd>BufferNext<CR>",         mopts)
 map("n", "<A-<>",     "<Cmd>BufferMovePrevious<CR>", mopts)
 -- Uncomment and pick a distinct key for MoveNext if needed:
 -- map("n", "<A->>",  "<Cmd>BufferMoveNext<CR>",     mopts)
