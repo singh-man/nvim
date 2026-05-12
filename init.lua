@@ -98,7 +98,8 @@ opt.wildmode       = { "longest", "list" }  -- bash-like tab completion
 opt.colorcolumn    = "120"          -- 120-column guide
 opt.showmode       = false          -- hide -- INSERT -- in command bar
 opt.timeoutlen     = 800            -- key sequence timeout (ms)
-opt.clipboard      = "unnamedplus"  -- system clipboard (WSL: needs win32yank)
+-- opt.clipboard      = "unnamedplus"  -- system clipboard (WSL: needs win32yank)
+opt.clipboard = ""                  -- Do not use system clipboard
 -- opt.termguicolors = true          -- uncomment if your terminal supports it
 -- opt.wrap          = false         -- uncomment to disable word wrap
 
