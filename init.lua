@@ -98,6 +98,8 @@ opt.wildmode       = { "longest", "list" }  -- bash-like tab completion
 opt.colorcolumn    = "120"          -- 120-column guide
 opt.showmode       = false          -- hide -- INSERT -- in command bar
 opt.timeoutlen     = 800            -- key sequence timeout (ms)
+opt.foldmethod     = "indent"       -- indent-based folding -- 'z' based commands
+opt.foldenable     = false          -- keep folds open by default
 -- opt.clipboard      = "unnamedplus"  -- system clipboard (WSL: needs win32yank)
 opt.clipboard = ""                  -- Do not use system clipboard
 -- opt.termguicolors = true          -- uncomment if your terminal supports it
@@ -129,6 +131,63 @@ map("n", "<leader>s", "<Cmd>wa<CR>",                 mopts)
 
 -- Toggle word wrap
 map("n", "<Space>W",  "<Cmd>set wrap!<CR>",          mopts)
+
+-- Toggle fold under cursor
+map("n", "<leader>z", "za",                          { desc = "Toggle fold" })
+
+-- Diff current buffer with another open buffer
+map("n", "<leader>db", function()
+  local current_win = vim.api.nvim_get_current_win()
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  local buffers = vim.tbl_filter(function(buf)
+    return buf ~= current_buf
+      and vim.api.nvim_buf_is_loaded(buf)
+      and vim.bo[buf].buflisted
+  end, vim.api.nvim_list_bufs())
+
+  if #buffers == 0 then
+    vim.notify("No other listed buffers to diff", vim.log.levels.INFO)
+    return
+  end
+
+  vim.ui.select(buffers, {
+    prompt = "Diff with buffer",
+    format_item = function(buf)
+      local name = vim.api.nvim_buf_get_name(buf)
+      return vim.fn.fnamemodify(name ~= "" and name or "[No Name]", ":~:.")
+    end,
+  }, function(buf)
+    if not buf then
+      return
+    end
+
+    vim.cmd("vertical sbuffer " .. buf)
+    local diff_win = vim.api.nvim_get_current_win()
+
+    vim.api.nvim_set_current_win(current_win)
+    vim.cmd("diffthis")
+
+    vim.api.nvim_set_current_win(diff_win)
+    vim.cmd("diffthis")
+  end)
+end, { desc = "Diff with buffer" })
+
+-- Turn off diff mode and close the compared split
+map("n", "<leader>do", function()
+  local current_win = vim.api.nvim_get_current_win()
+  local diff_wins = vim.tbl_filter(function(win)
+    return vim.api.nvim_win_is_valid(win) and vim.wo[win].diff
+  end, vim.api.nvim_tabpage_list_wins(0))
+
+  vim.cmd("diffoff!")
+
+  for _, win in ipairs(diff_wins) do
+    if win ~= current_win and vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_win_close(win, false)
+    end
+  end
+end, { desc = "Diff off" })
 
 -- Telescope (uncomment to activate)
 -- map("n", "<leader>ff", "<Cmd>Telescope find_files<CR>",  mopts)
