@@ -100,10 +100,12 @@ opt.showmode       = false          -- hide -- INSERT -- in command bar
 opt.timeoutlen     = 800            -- key sequence timeout (ms)
 opt.foldmethod     = "indent"       -- indent-based folding -- 'z' based commands
 opt.foldenable     = false          -- keep folds open by default
+opt.smoothscroll   = true           -- scroll wrapped lines by screen line; like visual scroll of other IDE's 
 -- opt.clipboard      = "unnamedplus"  -- system clipboard (WSL: needs win32yank)
 opt.clipboard = ""                  -- Do not use system clipboard
--- opt.termguicolors = true          -- uncomment if your terminal supports it
--- opt.wrap          = false         -- uncomment to disable word wrap
+opt.termguicolors = true            -- uncomment if your terminal supports it
+-- opt.wrap          = false           -- uncomment to disable word wrap
+opt.display:append("lastline")      -- show as much of the last wrapped line as possible
 
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax on")
