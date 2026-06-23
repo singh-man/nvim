@@ -85,6 +85,7 @@ local opt = vim.opt
 opt.encoding       = "UTF-8"
 opt.showmatch      = true           -- show matching brackets
 opt.ignorecase     = true           -- case-insensitive search
+opt.smartcase      = true           -- search like /Vim becomes case-sensitive
 opt.mouse          = "a"            -- full mouse support
 opt.hlsearch       = true           -- highlight search results
 opt.tabstop        = 4              -- columns per tab character
