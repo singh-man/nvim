@@ -170,9 +170,11 @@ map("n", "<leader>db", function()
 
     vim.api.nvim_set_current_win(current_win)
     vim.cmd("diffthis")
+    vim.wo.wrap = true
 
     vim.api.nvim_set_current_win(diff_win)
     vim.cmd("diffthis")
+    vim.wo.wrap = true
   end)
 end, { desc = "Diff with buffer" })
 
