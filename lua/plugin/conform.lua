@@ -1,0 +1,26 @@
+require("conform").setup({
+  formatters_by_ft = {
+    javascript = { "prettier" },
+    javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    json = { "prettier" },
+    jsonc = { "prettier" },
+    yaml = { "prettier" },
+    html = { "prettier" },
+    htmlangular = { "prettier" },
+    css = { "prettier" },
+    scss = { "prettier" },
+    less = { "prettier" },
+    vue = { "prettier" },
+    angular = { "prettier" },
+    markdown = { "prettier" },
+    mdx = { "prettier" },
+    ["markdown.mdx"] = { "prettier" },
+    graphql = { "prettier" },
+    handlebars = { "prettier" },
+  },
+  default_format_opts = {
+    lsp_format = "fallback",
+  },
+})

@@ -72,6 +72,27 @@ Windows
 
 > ```<leader> 'Space'``` key is used for custom keymap as which-key plugins help becomes useful; or reverto to default ```\``` in init.vim.
 
+### Format files
+
+[`conform.nvim`](https://github.com/stevearc/conform.nvim) is configured to use Prettier for JavaScript, TypeScript, JSON, JSONC, YAML, HTML, CSS, SCSS, Less, Vue, Angular, Markdown, MDX, GraphQL, and Handlebars files.
+
+Install Prettier through Mason from inside Neovim:
+
+```vim
+:MasonInstall prettier
+```
+
+Press `<leader>p` in normal mode to format the current file. Select a range in visual mode and press `<leader>p` to format only that range. Run `:ConformInfo` to check which formatter is available for the current buffer.
+
+The `<leader>jq` mapping formats the entire JSON buffer with `jq`. Install `jq` separately if it is not already available:
+
+```sh
+# Debian/Ubuntu/WSL
+sudo apt install jq
+```
+
+The `jq` mapping requires valid JSON and does not support comments in JSONC files.
+
 
 ### Refrence .dotfiles for nvim
 

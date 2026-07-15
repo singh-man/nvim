@@ -61,6 +61,9 @@ vim.pack.add({
   -- LSP config
   { src = "https://github.com/neovim/nvim-lspconfig" },
 
+  -- Formatting
+  { src = "https://github.com/stevearc/conform.nvim" },
+
   -- Autocompletion
   { src = "https://github.com/rafamadriz/friendly-snippets" },
   { src = "https://github.com/saghen/blink.cmp", version = "v1.10.2" },

@@ -7,6 +7,15 @@ wk.setup {
 }
 
 wk.add({
+    { "<leader>jq", "<cmd>keepjumps %!jq .<cr>", desc = "Format JSON with jq", mode = "n" },
+    {
+      "<leader>p",
+      function()
+        require("conform").format({ async = true, lsp_format = "fallback" })
+      end,
+      desc = "Format file or range",
+      mode = { "n", "v" },
+    },
     { "<leader>f", group = "File/Telescope" },
     { "<leader>f1", hidden = true },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffer" },
