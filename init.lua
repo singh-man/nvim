@@ -115,6 +115,9 @@ local mopts = { silent = false }
 map("n", "<leader>x", function()
   require("buffer").close_current()
 end, { silent = true, desc = "Close buffer" })
+map("n", "<leader>X", function()
+  require("buffer").close_current(true)
+end, { silent = true, desc = "Force close buffer" })
 
 -- Save all buffers
 map("n", "<leader>s", "<Cmd>wa<CR>",                 mopts)
