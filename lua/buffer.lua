@@ -12,6 +12,12 @@ end
 
 function M.close_current(force)
   local bufnr = vim.api.nvim_get_current_buf()
+
+  if not force and vim.bo[bufnr].modified then
+    vim.cmd("bdelete")
+    return
+  end
+
   local replacement = has_other_normal_buffer(bufnr)
 
   if replacement then
