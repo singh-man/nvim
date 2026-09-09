@@ -111,7 +111,10 @@ local map   = vim.keymap.set
 local mopts = { silent = false }
 
 -- Close the current buffer
-map("n", "<leader>x", "<Cmd>bdelete<CR>",            { silent = true, desc = "Close buffer" })
+-- map("n", "<leader>x", "<Cmd>bdelete<CR>",            { silent = true, desc = "Close buffer" })
+map("n", "<leader>x", function()
+  require("buffer").close_current()
+end, { silent = true, desc = "Close buffer" })
 
 -- Save all buffers
 map("n", "<leader>s", "<Cmd>wa<CR>",                 mopts)

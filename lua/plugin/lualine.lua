@@ -33,7 +33,8 @@ require("lualine").setup({
         end,
         on_click = function(_, button)
           if button == "l" then
-            vim.cmd("bdelete")
+            -- vim.cmd("bdelete")
+            require("buffer").close_current()
           end
         end,
         desc = "Close current buffer",
