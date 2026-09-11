@@ -1,8 +1,14 @@
 local M = {}
 
+local function is_normal_buffer(bufnr)
+  return vim.api.nvim_buf_is_valid(bufnr)
+    and vim.fn.buflisted(bufnr) == 1
+    and vim.bo[bufnr].buftype == ""
+end
+
 local function has_other_normal_buffer(current_bufnr)
   for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if bufnr ~= current_bufnr and vim.fn.buflisted(bufnr) == 1 and vim.bo[bufnr].buftype == "" then
+    if bufnr ~= current_bufnr and is_normal_buffer(bufnr) then
       return bufnr
     end
   end
@@ -10,15 +16,29 @@ local function has_other_normal_buffer(current_bufnr)
   return nil
 end
 
+local function find_replacement_buffer(current_bufnr)
+  local alternate = vim.fn.bufnr("#")
+  if alternate ~= -1 and alternate ~= current_bufnr and is_normal_buffer(alternate) then
+    return alternate
+  end
+
+  return has_other_normal_buffer(current_bufnr)
+end
+
 function M.close_current(force)
   local bufnr = vim.api.nvim_get_current_buf()
+
+  if vim.bo[bufnr].buftype ~= "" then
+    vim.notify("Current buffer is not a normal file", vim.log.levels.WARN)
+    return
+  end
 
   if not force and vim.bo[bufnr].modified then
     vim.cmd("bdelete")
     return
   end
 
-  local replacement = has_other_normal_buffer(bufnr)
+  local replacement = find_replacement_buffer(bufnr)
 
   if replacement then
     vim.api.nvim_set_current_buf(replacement)
