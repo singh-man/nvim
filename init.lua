@@ -139,6 +139,7 @@ map("n", "<leader>z", "za",                          { desc = "Toggle fold" })
 -- ---------------------------------------------------------------------------
 -- LOAD CONFIG MODULES
 -- ---------------------------------------------------------------------------
+require("simpleDiff")
 require("diff")
 require("terminal")
 require("plugin")
