@@ -10,8 +10,8 @@ require("lualine").setup({
         show_filename_only = true,
         show_modified_status = true,
         buffers_color = {
-          active = { gui = "bold" },
-          inactive = "lualine_c_inactive",
+          active = "lualine_c_inactive",
+          inactive = "lualine_a_normal",
         },
         fmt = function(name, buffer)
           return buffer.current and ("▌ " .. name) or name
