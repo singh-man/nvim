@@ -61,6 +61,7 @@ vim.filetype.add({
 vim.lsp.enable({
   "bashls",
   "docker_language_server",
+  "jdtls",
   "lua_ls",
   "pyright",
   "vimls",
