@@ -81,7 +81,7 @@ map("n", "<leader>db", function()
       compared_win = diff_win,
     }
   end)
-end, { desc = "Diff with buffer" })
+end, { desc = "Diff with buffer -- use :q to close diff" })
 
 -- Turn off diff mode and close the compared split
 map("n", "<leader>do", function()
