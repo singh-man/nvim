@@ -74,32 +74,32 @@ vim.pack.add({
 local opt = vim.opt
 
 opt.encoding       = "UTF-8"
-opt.showmatch      = true           -- show matching brackets
-opt.ignorecase     = true           -- case-insensitive search
-opt.smartcase      = true           -- search like /Vim becomes case-sensitive
-opt.spell          = true           -- highlight misspelled words
-opt.mouse          = "a"            -- full mouse support
-opt.mousescroll    = "ver:1,hor:1"  -- use :set mousescroll& = to use default which is mousescroll=ver:3,hor:6
-opt.hlsearch       = true           -- highlight search results
-opt.tabstop        = 4              -- columns per tab character
-opt.softtabstop    = 4              -- treat N spaces as a tab on backspace
-opt.expandtab      = true           -- convert tabs to spaces
-opt.shiftwidth     = 4              -- width for autoindents
-opt.autoindent     = true           -- copy indent from current line
-opt.number         = true           -- absolute line numbers
-opt.relativenumber = true           -- relative line numbers
+opt.showmatch      = true                   -- show matching brackets
+opt.ignorecase     = true                   -- case-insensitive search
+opt.smartcase      = true                   -- search like /Vim becomes case-sensitive
+opt.spell          = true                   -- :set spell! highlight misspelled words
+opt.mouse          = "a"                    -- full mouse support
+opt.mousescroll    = "ver:1,hor:1"          -- use :set mousescroll& = to use default which is mousescroll=ver:3,hor:6
+opt.hlsearch       = true                   -- highlight search results
+opt.tabstop        = 4                      -- columns per tab character
+opt.softtabstop    = 4                      -- treat N spaces as a tab on backspace
+opt.expandtab      = true                   -- convert tabs to spaces
+opt.shiftwidth     = 4                      -- width for autoindents
+opt.autoindent     = true                   -- copy indent from current line
+opt.number         = true                   -- absolute line numbers
+opt.relativenumber = true                   -- relative line numbers
 opt.wildmode       = { "longest", "list" }  -- bash-like tab completion
-opt.colorcolumn    = "120"          -- 120-column guide
-opt.showmode       = false          -- hide -- INSERT -- in command bar
-opt.timeoutlen     = 800            -- key sequence timeout (ms)
-opt.foldmethod     = "indent"       -- indent-based folding -- 'z' based commands
-opt.foldenable     = false          -- keep folds open by default
-opt.smoothscroll   = true           -- scroll wrapped lines by screen line; like visual scroll of other IDE's 
--- opt.clipboard      = "unnamedplus"  -- system clipboard (WSL: needs win32yank)
-opt.clipboard = ""                  -- Do not use system clipboard
-opt.termguicolors = true            -- uncomment if your terminal supports it
--- opt.wrap          = false           -- uncomment to disable word wrap
-opt.display:append("lastline")      -- show as much of the last wrapped line as possible
+opt.colorcolumn    = "120"                  -- 120-column guide
+opt.showmode       = false                  -- hide -- INSERT -- in command bar
+opt.timeoutlen     = 800                    -- key sequence timeout (ms)
+opt.foldmethod     = "indent"               -- indent-based folding -- 'z' based commands
+opt.foldenable     = false                  -- keep folds open by default
+opt.smoothscroll   = true                   -- scroll wrapped lines by screen line; like visual scroll of other IDE's 
+-- opt.clipboard      = "unnamedplus"          -- system clipboard (WSL: needs win32yank)
+opt.clipboard = ""                          -- Do not use system clipboard
+opt.termguicolors = true                    -- uncomment if your terminal supports it
+-- opt.wrap          = false                   -- uncomment to disable word wrap
+opt.display:append("lastline")              -- show as much of the last wrapped line as possible
 
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax on")
