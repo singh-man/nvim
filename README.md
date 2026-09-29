@@ -105,7 +105,7 @@ git clone https://github.com/singh-man/nvim.git "$env:LOCALAPPDATA\nvim"
 Mason installs language servers from inside Neovim:
 
 ```vim
-:MasonInstall lua-language-server bash-language-server pyright vim-language-server docker-language-server jdtls
+:MasonInstall bash-language-server, docker-language-server, jdtls, lua-language-server, marksman, prettier, pyright, vim-language-server
 ```
 
 Edit `lua/plugin/nvim-lsp.lua` when enabling or configuring additional servers.
