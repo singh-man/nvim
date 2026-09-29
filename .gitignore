@@ -12,3 +12,4 @@ nvim-pack-lock.json
 # Local IDE settings
 .idea/
 .vscode/
+.aider*
