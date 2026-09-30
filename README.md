@@ -105,7 +105,7 @@ git clone https://github.com/singh-man/nvim.git "$env:LOCALAPPDATA\nvim"
 Mason installs language servers from inside Neovim:
 
 ```vim
-:MasonInstall bash-language-server, docker-language-server, jdtls, lua-language-server, prettier, pyright, vim-language-server
+:MasonInstall bash-language-server docker-language-server jdtls lua-language-server pyright vim-language-server
 ```
 
 Edit `lua/plugin/nvim-lsp.lua` when enabling or configuring additional servers.
@@ -126,6 +126,12 @@ Install Prettier through Mason:
 Press `<leader>p` in normal mode to format the current file. Select a range in visual mode and press `<leader>p` to format only that range. Run `:ConformInfo` to check which formatter is available for the current buffer.
 
 The `<leader>jq` mapping formats an entire JSON buffer using `jq` in normal mode, or only the selected JSON in visual mode. The input must contain valid JSON; the mapping does not support comments in JSONC files or block selections.
+
+## Preview Markdown
+
+Open a Markdown file and press `<leader>mp` to toggle `render-markdown.nvim`.
+
+The `markdown` and `markdown_inline` Tree-sitter parsers are installed automatically by the configuration.
 
 ## Further reading
 
