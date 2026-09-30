@@ -38,6 +38,9 @@ vim.pack.add({
   -- Treesitter  (run :TSUpdate after install to pull language parsers)
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 
+  -- Markdown rendering
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+
   -- Status line
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
 

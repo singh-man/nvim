@@ -86,6 +86,7 @@ wk.add({
     -- { "<leader>jq", "<cmd>keepjumps %!jq .<cr>", desc = "Format JSON with jq", mode = "n" },
     { "<leader>jq", format_json_with_jq, desc = "Format JSON with jq", mode = "n" },
     { "<leader>jq", format_json_selection_with_jq, desc = "Format selected JSON with jq", mode = "v" },
+    { "<leader>mp", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Markdown preview" },
     {
       "<leader>p",
       function()
