@@ -16,6 +16,8 @@ local parsers = {
   "kotlin",
   "latex",
   "lua",
+  "markdown",
+  "markdown_inline",
   "php",
   "python",
   "rust",
