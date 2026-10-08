@@ -58,7 +58,7 @@ vim.filetype.add({
   },
 })
 
--- Installed lsp-servers via :MasonInstall bash-language-server, docker-language-server, jdtls, lua-language-server, prettier, pyright, vim-language-server
+-- LSP packages installed via :MasonInstall bash-language-server, docker-language-server, jdtls, lua-language-server, pyright, vim-language-server
 vim.lsp.enable({
   "bashls",
   "docker_language_server",

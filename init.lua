@@ -80,7 +80,7 @@ opt.encoding       = "UTF-8"
 opt.showmatch      = true                   -- show matching brackets
 opt.ignorecase     = true                   -- case-insensitive search
 opt.smartcase      = true                   -- search like /Vim becomes case-sensitive
-opt.spell          = true                   -- :set spell! highlight misspelled words
+opt.spell          = false                  -- :set spell! toggles spelling; enabled for prose filetypes below
 opt.mouse          = "a"                    -- full mouse support
 opt.mousescroll    = "ver:1,hor:1"          -- use :set mousescroll& = to use default which is mousescroll=ver:3,hor:6
 opt.hlsearch       = true                   -- highlight search results
@@ -103,6 +103,13 @@ opt.clipboard = ""                          -- Do not use system clipboard
 opt.termguicolors = true                    -- uncomment if your terminal supports it
 -- opt.wrap          = false                   -- uncomment to disable word wrap
 opt.display:append("lastline")              -- show as much of the last wrapped line as possible
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown", "rst", "text" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
 
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax on")

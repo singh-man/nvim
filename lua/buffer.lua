@@ -46,8 +46,8 @@ function M.close_current(force)
     return
   end
 
-  -- Terminal buffers are unlisted, so bdelete would otherwise close the
-  -- current window when this is the last listed normal buffer.
+  -- Use an empty replacement before deleting the last listed normal buffer
+  -- so the current window remains usable.
   local ok = pcall(vim.cmd, force and "enew!" or "enew")
   if ok then
     vim.cmd((force and "bdelete! " or "bdelete ") .. bufnr)
