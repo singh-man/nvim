@@ -2,6 +2,14 @@ require("lualine").setup({
   options = {
     always_show_tabline = true,
   },
+  sections = {
+    lualine_c = {
+      {
+        "filename",
+        path = 2,
+      },
+    },
+  },
   tabline = {
     lualine_a = {
       {
